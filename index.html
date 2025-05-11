@@ -1,33 +1,98 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Cafe Menu</title>
+    <title>Monkey Tapri Menu Layouts</title>
     <style>
         body { 
             margin: 0; 
             background-color: #f0f0f0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            padding: 10px; /* Added padding for small screens */
-            box-sizing: border-box; /* Ensures padding doesn't add to width/height */
+            font-family: Arial, sans-serif;
+            padding: 20px;
         }
-        img { 
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 40px;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .flex-row {
+            display: flex; 
+            flex-direction: row; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            justify-content: center; 
+            align-items: flex-start;
+        }
+        .flex-column {
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+            align-items: center;
+        }
+        img {
             max-width: 100%; 
             height: auto; 
             display: block; 
             box-shadow: 0 0 15px rgba(0,0,0,0.2); 
-            border-radius: 5px; /* Optional: adds rounded corners */
+            border-radius: 10px;
         }
+        .tablet-frame {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.3);
+            max-width: 800px;
+            margin: auto;
+        }
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        .slideshow-container button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.7);
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .slideshow-container button:hover {
+            background-color: #ddd;
+        }
+        .left { left: 10px; }
+        .right { right: 10px; }
     </style>
 </head>
 <body>
-    <body style="flex-direction: row; flex-wrap: wrap; gap: 20px;">
-    <img src="front page.jpg" alt="Front Menu Page" style="width: 48%;">
-    <img src="second page.jpg" alt="Second Menu Page" style="width: 48%;">
-</body>
 
+
+    <div class="section tablet-frame">
+        <img src="front page.jpg" alt="Front Page">
+        <img src="second page.jpg" alt="Second Page">
+    </div>
+
+    <script>
+        const images = ["front page.jpg", "second page.jpg"];
+        let index = 0;
+        function next() {
+            index = (index + 1) % images.length;
+            document.getElementById("menuImage").src = images[index];
+        }
+        function prev() {
+            index = (index - 1 + images.length) % images.length;
+            document.getElementById("menuImage").src = images[index];
+        }
+    </script>
+
+</body>
 </html>
